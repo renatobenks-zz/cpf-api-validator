@@ -1,0 +1,12 @@
+# Project configs
+
+.idea/
+nbproject/
+
+# python execute cache
+
+**/*__pycache__/
+
+# database SQLite Auth API Module
+
+app/Modules/Auth/db.sqlite
