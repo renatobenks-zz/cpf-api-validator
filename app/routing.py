@@ -3,8 +3,9 @@ from app import *
 # Presenters representing
 from .Views.generateRandomCPF.generateRandomView import generateRandomView
 
-# Instance view
+# Instance views
 generateRandomView = generateRandomView.getGeneratedCpf()
+
 
 @app.route('/api/v1/random-generate')
 @auth.login_required

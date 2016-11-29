@@ -7,6 +7,7 @@ from app.Presenters.generateRandomCPF.generateRandomPresenter import generateRan
 # Instance presenter
 generateRandomPresenter = generateRandomPresenter()
 
+
 class generateRandomView(View):
     @staticmethod
     def getGeneratedCpf():
