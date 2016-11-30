@@ -1,10 +1,10 @@
-# Models
-from app.Models.Users.user import User
+# Super Presenter
+from app.Presenters import Presenter
 
 
-class generateRandomPresenter(User):
+class generateRandomPresenter(Presenter):
     def __init__(self):
-        self.changeUsername('Renatinho do gueto')
+        self.data = {"username": self.username}
 
-    def instanceView(self, view):
-        return view(self.username)
+    def get_username(self, username):
+        self.data = username

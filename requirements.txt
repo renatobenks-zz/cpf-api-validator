@@ -8,3 +8,4 @@ Werkzeug==0.9.4
 itsdangerous==0.23
 passlib==1.6.1
 gunicorn==19.4.5
+mongoengine==0.10.7

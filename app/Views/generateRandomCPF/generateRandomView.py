@@ -4,11 +4,12 @@ from app.Views import View
 # Presenter
 from app.Presenters.generateRandomCPF.generateRandomPresenter import generateRandomPresenter
 
-# Instance presenter
+# Instance view
 generateRandomPresenter = generateRandomPresenter()
 
 
 class generateRandomView(View):
     @staticmethod
-    def getGeneratedCpf():
+    def getGeneratedCpf(username):
+        generateRandomPresenter.get_username(username)
         return generateRandomPresenter.instanceView(generateRandomView)
