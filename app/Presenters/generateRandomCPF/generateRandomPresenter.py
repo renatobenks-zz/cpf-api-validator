@@ -6,5 +6,5 @@ class generateRandomPresenter(Presenter):
     def __init__(self):
         self.data = {"username": self.username}
 
-    def get_username(self, username):
+    def getGeneratedCpf(self, username):
         self.data = username

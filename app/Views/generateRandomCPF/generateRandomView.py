@@ -10,6 +10,6 @@ generateRandomPresenter = generateRandomPresenter()
 
 class generateRandomView(View):
     @staticmethod
-    def getGeneratedCpf(username):
-        generateRandomPresenter.get_username(username)
+    def getDataGeneratedCpf(username):
+        generateRandomPresenter.getGeneratedCpf(username)
         return generateRandomPresenter.instanceView(generateRandomView)
