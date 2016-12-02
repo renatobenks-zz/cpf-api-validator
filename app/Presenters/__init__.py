@@ -1,7 +1,3 @@
-# Models
-from app.Models.Users.user import User
-
-
-class Presenter(User):
+class Presenter(object):
     def instanceView(self, view):
         return view(self.data)

@@ -1,15 +1,15 @@
-# Super class
+# Super view
 from app.Views import View
 
 # Presenter
-from app.Presenters.generateRandomCPF.generateRandomPresenter import generateRandomPresenter
+from app.Presenters.generateRandomCPF.UserCPFPresenter import UserCPFPresenter
 
 # Instance view
-generateRandomPresenter = generateRandomPresenter()
+UserCPFPresenter = UserCPFPresenter()
 
 
 class generateRandomView(View):
     @staticmethod
     def getDataGeneratedCpf(username):
-        generateRandomPresenter.getGeneratedCpf(username)
-        return generateRandomPresenter.instanceView(generateRandomView)
+        UserCPFPresenter.getGeneratedCpf(username)
+        return UserCPFPresenter.instanceView(generateRandomView)

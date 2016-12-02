@@ -1,2 +1,0 @@
-class generateRandomController(object):
-    pass
