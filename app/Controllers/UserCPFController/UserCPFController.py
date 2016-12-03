@@ -1,18 +1,35 @@
 class UserCPFController(object):
     @staticmethod
-    def getGeneratedCpf(User):
+    def validatingCpf(cpf):
+        cpf = list([int(n) for n in cpf if n.isdigit()])
+
+        return {
+            "cpf": formatCpf(cpf),
+            "isValid": validateCpf(cpf)
+        }
+
+    @staticmethod
+    def getGeneratedCpf(User, num_list_cpf):
         if User.count() > 0:
             cpfs = User.first().my_cpfs
             my_cfs = []
             for cpf in cpfs:
                 my_cfs.append(cpf.cpf)
 
-            cpf = generateRandomCpf()
-
-            while not validateCpf(cpf) or formatCpf(cpf) in my_cfs:
+            def findValidCpfGenerated():
                 cpf = generateRandomCpf()
+                while not validateCpf(cpf) or formatCpf(cpf) in my_cfs:
+                    cpf = generateRandomCpf()
+
+                return cpf
+
+            my_list_cpf = []
+
+            for num in range(num_list_cpf):
+                my_list_cpf.append(formatCpf(findValidCpfGenerated()))
+
             return {
-                "cpf": formatCpf(cpf)
+                "my_list_cpf": my_list_cpf
             }
         else:
             return {
@@ -70,5 +87,5 @@ def getDivision(cpf):
 
 
 def validateCpf(cpf):
-    division =  getDivision(cpf)
+    division = getDivision(cpf)
     return bool(division[0] == division[1])

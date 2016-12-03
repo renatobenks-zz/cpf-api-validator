@@ -2,14 +2,15 @@
 from app.Views import View
 
 # Presenter
-from app.Presenters.generateRandomCPF.UserCPFPresenter import UserCPFPresenter
+from app.Presenters.UserCPFPresenter.UserCPFPresenter import UserCPFPresenter
 
-# Instance view
+# Instance presenter
 UserCPFPresenter = UserCPFPresenter()
 
 
 class generateRandomView(View):
     @staticmethod
-    def getDataGeneratedCpf(username):
-        UserCPFPresenter.getGeneratedCpf(username)
+    def getDataGeneratedCpf(username, num_list_cpf):
+        UserCPFPresenter.getGeneratedCpf(username, num_list_cpf)
+
         return UserCPFPresenter.instanceView(generateRandomView)

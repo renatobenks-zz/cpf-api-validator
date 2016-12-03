@@ -20,8 +20,9 @@ class Users(Document):
     my_cpfs = ListField(EmbeddedDocumentField(ListCPF))
 
     @staticmethod
-    def getGeneratedRandomCpf(username):
-        return UserCPFController.getGeneratedCpf(Users.objects(username=username))
+    def getGeneratedRandomCpf(username, num_list_cpf):
+        return UserCPFController.getGeneratedCpf(Users.objects(username=username), num_list_cpf)
 
-    def getValidationCpf(self):
-        pass
+    @staticmethod
+    def getValidationCpf(cpf):
+        return UserCPFController.validatingCpf(cpf)
