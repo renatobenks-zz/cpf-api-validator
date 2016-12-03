@@ -10,11 +10,11 @@ from .Views.validateCpfView.validateCpfView import validateCpfView
 @app.route('/api/v1/random-generate', methods=["POST"])
 @auth.login_required
 def generate():
-    if type(request.json.get('username')) == type(str()):
+    if request.json.get('username') and request.json.get('username') is str():
         generated = generateRandomView.getDataGeneratedCpf(request.json.get('username'))
         return generated.render()
     else:
-        abort(500)
+        abort(400)
 
 
 @app.route('/api/v1/cpf-validate', methods=["POST"])
