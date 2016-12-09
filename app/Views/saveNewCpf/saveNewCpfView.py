@@ -1,4 +1,4 @@
-# Super View
+# Super view
 from app.Views import View
 
 # Presenter
@@ -8,9 +8,7 @@ from app.Presenters.UserCPFPresenter.UserCPFPresenter import UserCPFPresenter
 UserCPFPresenter = UserCPFPresenter()
 
 
-class ValidateCpfView(View):
+class SaveNewCpfView(View):
     @staticmethod
-    def getDataValidationCpf(cpf):
-        UserCPFPresenter.getValidationCpf(cpf)
-
-        return UserCPFPresenter.instanceView(ValidateCpfView)
+    def saveDataCpfReceived(id, cpf):
+        pass

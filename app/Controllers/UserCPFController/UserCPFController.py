@@ -1,5 +1,9 @@
 class UserCPFController(object):
     @staticmethod
+    def savingCpf(User, Cpf):
+        return {}
+
+    @staticmethod
     def validatingCpf(cpf):
         cpf = list([int(n) for n in cpf if n.isdigit()])
 
@@ -10,7 +14,7 @@ class UserCPFController(object):
 
     @staticmethod
     def getGeneratedCpf(User, num_list_cpf):
-        if User.count() > 0:
+        if User.count() == 1:
             cpfs = User.first().my_cpfs
             my_cfs = []
             for cpf in cpfs:

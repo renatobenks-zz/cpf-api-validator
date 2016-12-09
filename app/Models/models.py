@@ -5,11 +5,8 @@ from app.Controllers.UserCPFController.UserCPFController import UserCPFControlle
 from mongoengine import *
 
 
-class ListCPF(EmbeddedDocument):
+class ListCpf(EmbeddedDocument):
     cpf = StringField(required=True, unique=True)
-
-    def saveCpf(self):
-        pass
 
 
 class Users(Document):
@@ -17,7 +14,7 @@ class Users(Document):
     name = StringField(required=True)
     email = EmailField(required=True)
     password = StringField(required=True, min_length=3, max_length=5)
-    my_cpfs = ListField(EmbeddedDocumentField(ListCPF))
+    my_cpfs = ListField(EmbeddedDocumentField(ListCpf))
 
     @staticmethod
     def getGeneratedRandomCpf(username, num_list_cpf):
@@ -26,3 +23,7 @@ class Users(Document):
     @staticmethod
     def getValidationCpf(cpf):
         return UserCPFController.validatingCpf(cpf)
+
+    @staticmethod
+    def getCpfSaved(id, cpf):
+        return UserCPFController.savingCpf(Users.objects(id=id), ListCpf(cpf=cpf))

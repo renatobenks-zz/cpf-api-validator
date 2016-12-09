@@ -11,3 +11,6 @@ class UserCPFPresenter(Presenter):
 
     def getValidationCpf(self, cpf):
         self.data = Users.getValidationCpf(cpf)
+
+    def saveCpfReceived(self, id, cpf):
+        self.data = Users.getCpfSaved(id, cpf)

@@ -8,9 +8,9 @@ from app.Presenters.UserCPFPresenter.UserCPFPresenter import UserCPFPresenter
 UserCPFPresenter = UserCPFPresenter()
 
 
-class generateRandomView(View):
+class GenerateRandomView(View):
     @staticmethod
     def getDataGeneratedCpf(username, num_list_cpf):
         UserCPFPresenter.getGeneratedCpf(username, num_list_cpf)
 
-        return UserCPFPresenter.instanceView(generateRandomView)
+        return UserCPFPresenter.instanceView(GenerateRandomView)
